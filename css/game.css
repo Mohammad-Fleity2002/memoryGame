@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.game {
+    background-color: rgb(201, 201, 201);
+    text-align: center;
+
+}
+.unread {
+    color: #c9c9c900;;
+}
+.after {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 900;
+    color: #fff;
+    display: none;
+}
+.game-intro {
+    color: #86e03d;
+    text-align: center;
+    font-family: cairo,sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+}
+.after img {
+    width: 340px;
+    height: 340px;
+}
+.memory-game {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    /*border: 2px solid lime;*/
+    perspective: 1000px;
+    transform: translateX(50%);
+    text-align: start;
+}
+.mb-0.unread {
+    display: none;
+    color: #c9c9c900;;
+
+}
+@media (max-width: 640px) {
+    .memory-game {
+        width: 440px;
+        height: 440px;
+        transform: translateX(0%);
+    }
+    .memorycard {
+        width: calc(19%);
+        height: 33%;
+    }
+    .mb-0.unread {
+        display: contents;
+        color: #c9c9c900;;
+
+    }
+}
+@media (min-width: 640px) and (max-width: 1200px) {
+    .memory-game {
+        transform: translateX(0%);
+
+    }
+}
+.memorycard {
+    width: calc(23%);
+    height: 33%;
+    position: relative;
+    margin:5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+.memorycard.flip{
+    transform: translateX(5px) rotateY(180deg);
+    margin:5px;
+}
+.memorycard:active {
+    margin:5px;
+    transform: scale(.74);
+    transition: transform .5s;
+}
+.front-face, 
+.back-face {
+    padding: 3px;
+    border-radius: 5px;
+    background: #86e03d;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+.front-face {
+    transform: rotateY(180deg);
+}
